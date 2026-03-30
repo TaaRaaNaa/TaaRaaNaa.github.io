@@ -10,7 +10,953 @@
     --navy:   #0f2340;
     --steel:  #1a5276;
     --gold:   #c9972c;
+    --gold-lt:#f0c96a;<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarana Chawla — Executive Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0f2340;
+    --steel:  #1a5276;
+    --gold:   #c9972c;
     --gold-lt:#f0c96a;
+    --cream:  #f8f5ef;
+    --warm:   #ede9e1;
+    --mist:   #d6cfc3;
+    --ink:    #1c1c1c;
+    --mid:    #4a4a4a;
+    --light:  #7a7068;
+    --white:  #ffffff;
+    --card:   #ffffff;
+    --shadow: rgba(15,35,64,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+  section[id] { scroll-margin-top: 72px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ─────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(15,35,64,0.96);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--gold-lt);
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.7);
+    text-decoration: none; transition: color 0.2s, border-bottom-color 0.2s;
+    padding-bottom: 4px; border-bottom: 1px solid transparent; cursor: pointer;
+  }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gold-lt); border-bottom-color: var(--gold); }
+
+  /* ── HERO ────────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(145deg, #0a1928 0%, #0f2340 45%, #1a3a5c 100%);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 80px 80px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 80% 40%, rgba(201,151,44,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300; line-height: 1.0;
+    color: var(--white); letter-spacing: -0.01em;
+    opacity: 0; animation: fadeUp 0.9s 0.35s forwards;
+  }
+  .hero-name span { color: var(--gold-lt); font-style: italic; }
+  .hero-tagline {
+    margin-top: 24px;
+    font-size: 1.1rem; font-weight: 300;
+    color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.6;
+    opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+  }
+  .hero-roles {
+    margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.9s 0.65s forwards;
+  }
+  .hero-role {
+    padding: 7px 18px;
+    border: 1px solid rgba(201,151,44,0.4);
+    border-radius: 2px;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold-lt);
+  }
+  .hero-stats {
+    margin-top: 64px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+    max-width: 700px;
+  }
+  .hero-stat {
+    padding: 24px 28px;
+    background: rgba(255,255,255,0.03);
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 600; line-height: 1;
+    color: var(--gold-lt);
+  }
+  .hero-stat-label {
+    margin-top: 6px;
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); line-height: 1.4;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 80px;
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,255,255,0.3);
+    opacity: 0; animation: fadeUp 1s 1.1s forwards;
+  }
+  .scroll-line {
+    width: 48px; height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  /* ── SECTION SHELL ───────────────────────────────────────── */
+  section { padding: 96px 80px; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;
+    color: var(--navy); line-height: 1.15;
+    margin-bottom: 48px;
+  }
+  .section-title em { font-style: italic; color: var(--steel); }
+
+  /* ── SUMMARY ─────────────────────────────────────────────── */
+  #summary { background: var(--white); }
+  .summary-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: start;
+  }
+  .summary-text {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.8;
+    color: var(--mid);
+  }
+  .summary-text strong { color: var(--navy); font-weight: 500; }
+  .summary-pillars { display: flex; flex-direction: column; gap: 20px; }
+  .pillar {
+    padding: 20px 24px;
+    border-left: 3px solid var(--gold);
+    background: var(--cream);
+  }
+  .pillar-title {
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--navy); margin-bottom: 6px;
+  }
+  .pillar-text { font-size: 0.88rem; color: var(--mid); line-height: 1.5; }
+
+  /* ── IMPACT ──────────────────────────────────────────────── */
+  #impact { background: var(--navy); }
+  #impact .section-title { color: var(--white); }
+  #impact .section-label { color: var(--gold); }
+  .impact-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    background: rgba(255,255,255,0.06);
+  }
+  .impact-card {
+    background: rgba(255,255,255,0.03);
+    padding: 40px 32px;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: default;
+  }
+  .impact-card:hover {
+    border-color: var(--gold);
+    background: rgba(201,151,44,0.06);
+  }
+  .impact-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 600; line-height: 1;
+    color: var(--gold-lt);
+  }
+  .impact-desc {
+    margin-top: 12px;
+    font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5;
+  }
+
+  /* ── EXPERIENCE ──────────────────────────────────────────── */
+  #experience { background: var(--cream); }
+  .exp-timeline { position: relative; }
+  .exp-timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 8px; bottom: 0;
+    width: 1px; background: var(--mist);
+  }
+  .exp-item {
+    display: grid; grid-template-columns: 260px 1fr;
+    gap: 48px; margin-bottom: 56px; position: relative;
+  }
+  .exp-item::before {
+    content: '';
+    position: absolute; left: -5px; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--cream);
+    z-index: 1;
+  }
+  .exp-meta { padding-left: 28px; }
+  .exp-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600; color: var(--navy);
+  }
+  .exp-title {
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--steel); margin-top: 4px;
+  }
+  .exp-dates {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--light); margin-top: 8px;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.9rem; font-weight: 300; color: var(--mid);
+    line-height: 1.65; padding: 10px 0;
+    border-bottom: 1px solid var(--warm);
+    display: flex; gap: 12px;
+  }
+  .exp-bullets li::before {
+    content: '→'; color: var(--gold);
+    flex-shrink: 0; margin-top: 1px;
+    font-size: 0.85rem;
+  }
+  .exp-bullets li strong { color: var(--navy); font-weight: 500; }
+  .exp-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(201,151,44,0.12);
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* ── PROJECTS ────────────────────────────────────────────── */
+  #projects { background: var(--white); }
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .project-card {
+    border: 1px solid var(--warm);
+    padding: 36px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .project-card:hover { border-color: var(--mist); transform: translateY(-4px); box-shadow: 0 20px 48px var(--shadow); }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600; color: var(--navy);
+    margin-bottom: 14px; line-height: 1.25;
+  }
+  .project-desc {
+    font-size: 0.875rem; color: var(--mid); line-height: 1.7; font-weight: 300;
+  }
+  .project-metrics {
+    margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .project-metric {
+    padding: 5px 12px;
+    background: var(--cream);
+    font-size: 0.72rem; font-weight: 500; color: var(--navy);
+    border-radius: 2px;
+  }
+
+  /* ── SKILLS ──────────────────────────────────────────────── */
+  #skills { background: var(--cream); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .skill-group {
+    background: var(--white); padding: 28px 32px;
+    transition: background 0.2s;
+  }
+  .skill-group:hover { background: #faf9f7; }
+  .skill-group-name {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--steel); margin-bottom: 14px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--warm);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    padding: 5px 12px;
+    border: 1px solid var(--mist);
+    font-size: 0.78rem; color: var(--mid); border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill-group:hover .skill-tag { border-color: var(--gold); color: var(--ink); }
+
+  /* ── RECOGNITION ─────────────────────────────────────────── */
+  #recognition { background: var(--navy); }
+  #recognition .section-title { color: var(--white); }
+  #recognition .section-label { color: var(--gold); }
+  .rec-intro {
+    font-size: 0.95rem; color: rgba(255,255,255,0.5);
+    font-weight: 300; max-width: 560px; line-height: 1.7;
+    margin-bottom: 48px; margin-top: -24px;
+  }
+  .rec-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .rec-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 28px;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  .rec-card:hover {
+    background: rgba(201,151,44,0.06);
+    border-color: rgba(201,151,44,0.3);
+    transform: translateY(-4px);
+  }
+  .rec-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .rec-from {
+    font-size: 0.8rem; font-weight: 500; color: var(--gold-lt);
+  }
+  .rec-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: rgba(255,255,255,0.3); letter-spacing: 0.06em;
+  }
+  .rec-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .rec-badge {
+    padding: 3px 9px;
+    background: rgba(201,151,44,0.15);
+    border-radius: 2px;
+    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold-lt);
+  }
+  .rec-quote {
+    font-size: 0.85rem; font-weight: 300; line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    font-style: italic;
+  }
+  .rec-quote::before { content: '"'; color: var(--gold); font-size: 1.1rem; }
+  .rec-quote::after  { content: '"'; color: var(--gold); font-size: 1.1rem; }
+
+  /* ── CONTACT / CTA ───────────────────────────────────────── */
+  #contact {
+    background: var(--white);
+    text-align: center;
+    padding: 100px 80px;
+  }
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 300;
+    color: var(--navy); margin-bottom: 16px; line-height: 1.1;
+  }
+  .contact-title em { font-style: italic; color: var(--gold); }
+  .contact-sub {
+    font-size: 1rem; font-weight: 300; color: var(--mid);
+    margin-bottom: 44px; line-height: 1.6;
+  }
+  .contact-links {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: all 0.25s;
+  }
+  .contact-btn.primary {
+    background: var(--navy); color: var(--white);
+  }
+  .contact-btn.primary:hover { background: var(--steel); }
+  .contact-btn.secondary {
+    border: 1px solid var(--mist); color: var(--navy);
+  }
+  .contact-btn.secondary:hover { border-color: var(--navy); }
+  .contact-detail {
+    margin-top: 40px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; color: var(--light); letter-spacing: 0.06em;
+  }
+  .contact-detail a { color: var(--steel); text-decoration: none; }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  footer {
+    background: var(--navy);
+    padding: 28px 80px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: rgba(255,255,255,0.5);
+  }
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: rgba(255,255,255,0.25); letter-spacing: 0.08em;
+  }
+
+  /* ── ANIMATIONS ──────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── COUNTER ─────────────────────────────────────────────── */
+  .count-up { display: inline-block; }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 64px 24px; }
+    .hero { padding: 100px 24px 64px; }
+    .hero-stats { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+    .summary-grid { grid-template-columns: 1fr; gap: 40px; }
+    .impact-grid { grid-template-columns: repeat(2,1fr); }
+    .exp-item { grid-template-columns: 1fr; gap: 16px; }
+    .exp-timeline::before { display: none; }
+    .exp-item::before { display: none; }
+    .exp-meta { padding-left: 0; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .rec-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 8px; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Tarana Chawla</div>
+  <div class="nav-links">
+    <a href="#summary">About</a>
+    <a href="#impact">Impact</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#contact">Connect</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <h1 class="hero-name">Tarana<br><span>Chawla</span></h1>
+  <p class="hero-tagline">Strategy leader who turns ambiguity into operating systems, data into decisions, and partnerships into measurable revenue.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num count-up" data-target="9.5" data-suffix="+">0</div>
+      <div class="hero-stat-label">Years of cross-functional leadership</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num count-up" data-target="25" data-suffix="%">0</div>
+      <div class="hero-stat-label">Delivery efficiency gain across 4 programs</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num count-up" data-target="40" data-suffix="%">0</div>
+      <div class="hero-stat-label">Reduction in reporting cycle time</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num count-up" data-target="35" data-suffix="%">0</div>
+      <div class="hero-stat-label">Revenue uplift across 500+ accounts</div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="section-label">Who I Am</div>
+  <h2 class="section-title">Executive leader who <em>executes</em><br>as well as she strategises</h2>
+  <div class="summary-grid">
+    <div class="summary-text reveal">
+      <p>With <strong>9.5+ years</strong> across global technology companies — Avalara, Capgemini, NTT DATA, IBM, and Paytm — I've sat at the intersection of strategy and operations, consistently bridging the gap between what leadership wants and what teams can actually deliver.</p>
+      <br>
+      <p>My superpower is <strong>building the systems that make things move</strong>: KPI frameworks that shift conversations from anecdotal to data-driven, automation workflows that recover 10+ hours per week, and governance models that eliminate the cracks revenue falls through.</p>
+      <br>
+      <p>I combine strategic thinking with hands-on execution — equally comfortable presenting to a VP as I am diagnosing a failed lead automation pipeline in Snowflake at midnight. Recognised by peers for <strong>ownership, urgency, passion, and adaptability</strong> — traits that show up in the data as much as they do in the feedback.</p>
+      <br>
+      <p>Currently based in <strong>New Delhi, India</strong>. Open to employer-supported work authorization &amp; open to remote and hybrid roles globally.</p>
+    </div>
+    <div class="summary-pillars reveal reveal-delay-2">
+      <div class="pillar">
+        <div class="pillar-title">Strategy → Execution</div>
+        <div class="pillar-text">I translate board-level priorities into weekly operating cadences, OKRs into sprint plans, and ambiguous mandates into delivered programs.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Data → Decisions</div>
+        <div class="pillar-text">Snowflake, Power BI, Azure Cloud, SQL — I don't just read dashboards, I design them. And I use the underlying data to tell the story that changes minds.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Automation → Scale</div>
+        <div class="pillar-text">As an n8n AI Captain, I build workflows that remove the manual drag from reporting, reminders, and routing — so teams can focus on what only humans can do.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Partnerships → Revenue</div>
+        <div class="pillar-text">From defining alliance KPIs to personally governing 100% of Salesforce partner opportunities, I treat every partner touchpoint as a revenue event.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-label">By the Numbers</div>
+  <h2 class="section-title">Impact that shows<br>up in the data</h2>
+  <div class="impact-grid">
+    <div class="impact-card reveal">
+      <div class="impact-num">25%</div>
+      <div class="impact-desc">Delivery efficiency gain across 4 concurrent programs — achieved by re-engineering sprint workflows on AWS & Azure, cutting cycle time from 3 weeks to 2 weeks</div>
+    </div>
+    <div class="impact-card reveal reveal-delay-1">
+      <div class="impact-num">40%</div>
+      <div class="impact-desc">Reduction in QBR prep & executive reporting cycle time — from 3 days to same-day, with 95%+ KPI data accuracy through automated validation</div>
+    </div>
+    <div class="impact-card reveal reveal-delay-2">
+      <div class="impact-num">35%</div>
+      <div class="impact-desc">Revenue uplift for 500+ long-tail merchants over 18 months — through segmentation redesign, pricing optimisation, and 4 targeted activation campaigns</div>
+    </div>
+    <div class="impact-card reveal reveal-delay-3">
+      <div class="impact-num">92%</div>
+      <div class="impact-desc">On-time product release rate across 6 major launches — maintaining velocity within ±10% over 8 consecutive quarters</div>
+    </div>
+    <div class="impact-card reveal">
+      <div class="impact-num">10h+</div>
+      <div class="impact-desc">Weekly hours saved through 8 automated PMO workflows built in n8n — achieving 98% on-time reporting compliance across all stakeholder groups</div>
+    </div>
+    <div class="impact-card reveal reveal-delay-1">
+      <div class="impact-num">50%</div>
+      <div class="impact-desc">Faster Alliance Manager response time — after taking sole ownership of 100% of inbound Salesforce partner opportunities, with a &lt;24-hour triage SLA</div>
+    </div>
+    <div class="impact-card reveal reveal-delay-2">
+      <div class="impact-num">60%</div>
+      <div class="impact-desc">Improvement in executive partner visibility — following design and rollout of the 4-dimension Strategic Alliance KPI framework across 50+ partners</div>
+    </div>
+    <div class="impact-card reveal reveal-delay-3">
+      <div class="impact-num">89%</div>
+      <div class="impact-desc">Sprint goal achievement rate (up from 68%) — driven by tighter backlog grooming, definition-of-ready standards, and blocker resolution cut from 4 days to 1.5</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <h2 class="section-title">Where I've <em>led</em></h2>
+  <div class="exp-timeline">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Avalara</div>
+        <div class="exp-title">Planning & Transformation Specialist</div>
+        <div class="exp-dates">Jun 2024 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li><strong>Strategic Alliance KPI framework</strong> across 50+ partners — 4 activity dimensions, 40% faster QBRs, 60% better visibility, 2× faster identification of underperforming partners. <span class="exp-tag">Snowflake</span> <span class="exp-tag">Power BI</span></li>
+        <li><strong>AI Hackathon lead</strong> — scoped and ran a 5-person cross-functional initiative; built an AI tool mapping Avalara products to partner signals, identifying 30+ reactivatable opportunities and a projected 20% pipeline uplift.</li>
+        <li><strong>Lead automation pipeline diagnosis</strong> — 6 months of Snowflake data analysis, 3 critical routing failures found and fixed, ~25% reduction in lead leakage, 40% better conversion tracking. <span class="exp-tag">Azure Cloud</span></li>
+        <li><strong>Salesforce opportunity governance</strong> — personally owned 100% of inbound partner leads with &lt;24h SLA; eliminated all misrouted leads, lifted Alliance Manager response speed by 50%.</li>
+        <li><strong>n8n AI Captain</strong> — automated 8 PMO workflows, saved 10+ hrs/week, achieved 98% reporting compliance. Recognised across org for n8n expertise.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Capgemini</div>
+        <div class="exp-title">Senior Consultant</div>
+        <div class="exp-dates">Apr 2021 – May 2024</div>
+      </div>
+      <ul class="exp-bullets">
+        <li><strong>25% delivery efficiency gain</strong> across 4 concurrent enterprise programs — re-engineered sprint workflows on AWS & Azure, cut cycle time 3→2 weeks, rework rate down 18%. <span class="exp-tag">AWS</span> <span class="exp-tag">Azure</span></li>
+        <li><strong>92% on-time delivery</strong> across 6 product releases — velocity held within ±10% over 8 quarters using RICE prioritisation and dependency management.</li>
+        <li><strong>KPI & SOP frameworks</strong> across 3 enterprise clients — 20% adoption improvement, 22% defect reduction within 2 quarters. <span class="exp-tag">$5M+ portfolio</span></li>
+        <li><strong>100+ cross-functional alignment sessions</strong> facilitated — 30% fewer escalations, 2-week faster time-to-decision per initiative.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">NTT DATA</div>
+        <div class="exp-title">Associate Consultant — Scrum Master</div>
+        <div class="exp-dates">Aug 2018 – Oct 2019</div>
+      </div>
+      <ul class="exp-bullets">
+        <li><strong>Sprint goal achievement 68% → 89%</strong> across 3 cross-functional teams — tightened grooming, enforced definition-of-ready, cut blocker resolution from 4 days to 1.5 days.</li>
+        <li><strong>200+ user stories managed</strong> across 2 parallel workstreams — 100% grooming cadence, 35% reduction in scope creep.</li>
+        <li><strong>5 delivery processes redesigned</strong> — 20% improvement in cross-team execution predictability, changes adopted org-wide.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">IBM · Paytm</div>
+        <div class="exp-title">Business Analyst</div>
+        <div class="exp-dates">Mar 2015 – Aug 2018</div>
+      </div>
+      <ul class="exp-bullets">
+        <li><strong>IBM:</strong> 15% ticket reduction (~120 → ~102/month), MTTR cut 2 days, SLA compliance lifted 78% → 91% across 3 service lines.</li>
+        <li><strong>Paytm:</strong> 35% merchant revenue uplift over 18 months — redesigned segmentation, repriced 500+ merchants, ran 4 campaigns that drove 28% increase in transaction frequency.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Projects that <em>moved the needle</em></h2>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-num">01 / Strategic Alliance Analytics</div>
+      <div class="project-title">Partner KPI Performance Model</div>
+      <div class="project-desc">Designed a 4-dimension KPI tracking system for 50+ strategic partners — calls, meetings, emails, events. Replaced entirely manual, anecdotal QBR reporting with a data-driven model that let leadership identify underperforming partners 2× faster and engage with precision.</div>
+      <div class="project-metrics">
+        <span class="project-metric">40% faster QBRs</span>
+        <span class="project-metric">60% better visibility</span>
+        <span class="project-metric">50+ partners</span>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-num">02 / AI & Automation</div>
+      <div class="project-title">AI Partner Re-Engagement Tool</div>
+      <div class="project-desc">Led an internal AI Hackathon to recover dormant partner pipeline. The tool ingested partner signals — events, blogs, conferences, company updates — and automatically matched them to relevant Avalara products, enabling hyper-targeted outreach at scale. Cut partner research from hours to minutes per account.</div>
+      <div class="project-metrics">
+        <span class="project-metric">30+ opportunities found</span>
+        <span class="project-metric">20% pipeline uplift</span>
+        <span class="project-metric">5-person team led</span>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">03 / Data Engineering</div>
+      <div class="project-title">Lead Funnel Failure Diagnosis</div>
+      <div class="project-desc">Independently diagnosed a broken lead automation pipeline through 6 months of historical data analysis in Snowflake and Azure Cloud. Mapped 3 critical failure points in the funnel, co-designed the engineering fix, and established new data quality standards adopted across the alliances team.</div>
+      <div class="project-metrics">
+        <span class="project-metric">~25% less lead leakage</span>
+        <span class="project-metric">40% better conversion tracking</span>
+        <span class="project-metric">Snowflake · Azure</span>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-num">04 / Revenue Operations</div>
+      <div class="project-title">Salesforce Opportunity Governance</div>
+      <div class="project-desc">Conceived and operationalised a partner opportunity management workflow in Salesforce — defining routing logic, SLA thresholds (&lt;24hrs), and reporting. Personally owned every inbound partner lead, eliminating 100% of misrouted opportunities and ensuring zero revenue fell through process gaps.</div>
+      <div class="project-metrics">
+        <span class="project-metric">100% lead coverage</span>
+        <span class="project-metric">50% faster response</span>
+        <span class="project-metric">&lt;24hr SLA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title">What I bring <em>to the table</em></h2>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Strategy & Leadership</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Business Strategy</span>
+        <span class="skill-tag">Chief of Staff</span>
+        <span class="skill-tag">Strategic Planning</span>
+        <span class="skill-tag">OKR Design</span>
+        <span class="skill-tag">Thought Leadership</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-delay-1">
+      <div class="skill-group-name">Program & PMO Governance</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Cross-Functional Delivery</span>
+        <span class="skill-tag">RAID Management</span>
+        <span class="skill-tag">Agile / Scrum</span>
+        <span class="skill-tag">Operating Model Design</span>
+        <span class="skill-tag">Release Management</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-delay-2">
+      <div class="skill-group-name">Growth & Revenue</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Revenue Expansion</span>
+        <span class="skill-tag">Pricing Strategy</span>
+        <span class="skill-tag">Customer Segmentation</span>
+        <span class="skill-tag">Category Management</span>
+        <span class="skill-tag">Partner Ecosystems</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-name">Data & Cloud Analytics</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Snowflake</span>
+        <span class="skill-tag">Azure Cloud</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">SQL / MySQL</span>
+        <span class="skill-tag">KPI Frameworks</span>
+        <span class="skill-tag">Funnel Analysis</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-delay-1">
+      <div class="skill-group-name">Automation & Tooling</div>
+      <div class="skill-tags">
+        <span class="skill-tag">n8n (AI Captain)</span>
+        <span class="skill-tag">Salesforce</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Confluence</span>
+        <span class="skill-tag">ServiceNow</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">MS 365</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-delay-2">
+      <div class="skill-group-name">Executive Stakeholders</div>
+      <div class="skill-tags">
+        <span class="skill-tag">C-Suite Communication</span>
+        <span class="skill-tag">QBR / MBR Facilitation</span>
+        <span class="skill-tag">Change Management</span>
+        <span class="skill-tag">Cross-LOB Alignment</span>
+        <span class="skill-tag">Executive Narratives</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section id="recognition">
+  <div class="section-label">Peer Recognition</div>
+  <h2 class="section-title">What colleagues <em>say</em></h2>
+  <p class="rec-intro">Unsolicited recognition from colleagues across Avalara — reflecting the values and behaviours that show up every day, not just in the metrics.</p>
+  <div class="rec-grid">
+
+    <div class="rec-card reveal">
+      <div class="rec-header">
+        <div class="rec-from">Suraj Bende → Tarana</div>
+        <div class="rec-date">Dec 2025</div>
+      </div>
+      <div class="rec-badges">
+        <span class="rec-badge">Humility</span>
+        <span class="rec-badge">Urgency</span>
+        <span class="rec-badge">Ownership</span>
+      </div>
+      <div class="rec-quote">Tarana has been instrumental in helping me get up to speed with the Avascraper tool, always offering support with patience and clarity. She consistently takes strong ownership, thinking ahead and ensuring every step of the project is well-planned. Her ability to translate plans into precise execution has been key to moving this initiative forward. Tarana's commitment and follow-through make complex work feel achievable and organized.</div>
+    </div>
+
+    <div class="rec-card reveal reveal-delay-1">
+      <div class="rec-header">
+        <div class="rec-from">Apurv Masalkar → Tarana</div>
+        <div class="rec-date">Dec 2025</div>
+      </div>
+      <div class="rec-badges">
+        <span class="rec-badge">Passion</span>
+      </div>
+      <div class="rec-quote">Thank you for sharing your insights on n8n workflow building — they've really helped me understand the different nodes and how to use them effectively. I truly appreciate it.</div>
+    </div>
+
+    <div class="rec-card reveal reveal-delay-2">
+      <div class="rec-header">
+        <div class="rec-from">Mike Marek → Tarana</div>
+        <div class="rec-date">Nov 2025</div>
+      </div>
+      <div class="rec-badges">
+        <span class="rec-badge">AI Kudos</span>
+      </div>
+      <div class="rec-quote">Tarana has fully embraced becoming a citizen developer and is quickly advancing to becoming an AI Captain. Tarana did a fantastic job building out flows in n8n that help benefit the partner team and now she is taking on more by starting to work in the tier 3 instance. Keep up the great work, Tarana!</div>
+    </div>
+
+    <div class="rec-card reveal">
+      <div class="rec-header">
+        <div class="rec-from">Sagar Dayma → Tarana</div>
+        <div class="rec-date">Nov 2025</div>
+      </div>
+      <div class="rec-badges">
+        <span class="rec-badge">Adaptability</span>
+        <span class="rec-badge">Humility</span>
+      </div>
+      <div class="rec-quote">Thanks to Tarana for providing insights on n8n workflows. You helped me open many doors which will help the DXD team in automating multiple manual tasks. I really appreciate you saying you can help us dry run the T3 level workflows — this level of flexibility helps us grow together.</div>
+    </div>
+
+    <div class="rec-card reveal reveal-delay-1">
+      <div class="rec-header">
+        <div class="rec-from">Sara Simrell → Tarana</div>
+        <div class="rec-date">Aug 2025</div>
+      </div>
+      <div class="rec-badges">
+        <span class="rec-badge">Urgency</span>
+      </div>
+      <div class="rec-quote">Thank you for jumping in so quickly to help me troubleshoot the survey link. Your willingness to assist and the positive attitude you brought to the table made a difference. I really appreciated your responsiveness and teamwork.</div>
+    </div>
+
+    <div class="rec-card reveal reveal-delay-2">
+      <div class="rec-header">
+        <div class="rec-from">Sara Simrell + Zach Knox → Tarana</div>
+        <div class="rec-date">Apr 2025</div>
+      </div>
+      <div class="rec-badges">
+        <span class="rec-badge">Passion</span>
+        <span class="rec-badge">Ownership</span>
+      </div>
+      <div class="rec-quote">Kudos to Tarana for creating a warm, welcoming environment and actively building community within the team. The way she shows up for others, fosters connection, and leads with empathy makes a real difference. Her actions demonstrate true leadership and set the tone for the kind of culture we want to build together.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Let's Talk</div>
+  <h2 class="contact-title">Open to <em>the right</em><br>executive opportunity</h2>
+  <p class="contact-sub">Chief of Staff · Strategy Manager · Program Manager · Product Manager<br>New Delhi, India &nbsp;·&nbsp; Open to employer-supported work authorization<br>Open to remote and hybrid roles globally</p>
+  <div class="contact-links">
+    <a href="mailto:Tarana60shashi@gmail.com" class="contact-btn primary">✉ Send an Email</a>
+    <a href="https://www.linkedin.com/in/taraanaachawla" target="_blank" class="contact-btn secondary">LinkedIn Profile →</a>
+  </div>
+  <div class="contact-detail">
+    Tarana60shashi@gmail.com &nbsp;·&nbsp; +91 8178301560 &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/taraanaachawla">linkedin.com/in/taraanaachawla</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Tarana Chawla · Executive Portfolio</div>
+  <div class="footer-note">New Delhi, India &nbsp;·&nbsp; Open to employer-supported work authorization &nbsp;·&nbsp; Remote &amp; Hybrid roles welcome</div>
+</footer>
+
+<script>
+  // ── Smooth scroll for ALL internal anchor links (bulletproof)
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      e.preventDefault();
+      const navH = document.querySelector('nav').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+      window.scrollTo({ top, behavior: 'smooth' });
+      // Update active state immediately on click
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // ── Active nav link highlighting on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const activateLink = () => {
+    const navH = document.querySelector('nav').offsetHeight;
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - navH - 32) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  };
+  window.addEventListener('scroll', activateLink, { passive: true });
+  activateLink();
+
+  // ── Intersection Observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Counter animation
+  function animateCount(el) {
+    const target   = parseFloat(el.dataset.target);
+    const suffix   = el.dataset.suffix || '';
+    const isFloat  = target % 1 !== 0;
+    const duration = 1800;
+    const start    = performance.now();
+    const update   = now => {
+      const p   = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val  = isFloat ? (target * ease).toFixed(1) : Math.round(target * ease);
+      el.textContent = val + suffix;
+      if (p < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCount(e.target); counterObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.count-up').forEach(el => counterObserver.observe(el));
+</script>
+</body>
+</html>
+
     --cream:  #f8f5ef;
     --warm:   #ede9e1;
     --mist:   #d6cfc3;
